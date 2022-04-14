@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        >
+
+        <TextView
+            android:id="@+id/todolist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:adjustViewBounds="true"
+            android:background="#D21092C5"
+            android:gravity="center"
+            android:paddingLeft="110dp"
+            android:paddingRight="100dp"
+            android:text="TO DO LIST"
+            android:textColor="#FFFFFF"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:clickable="false"
+            android:text="date"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ListView
+                android:id="@+id/memo_list_campus"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:gravity="center"
+                android:text="목록"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/campus_text"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:background="#7346BCF2"
+                android:gravity="center"
+                android:text="CAMPUS"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ListView
+                android:id="@+id/memo_list_life"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:gravity="center"
+                android:text="목록"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/life_text"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:background="#7346BCF2"
+                android:gravity="center"
+                android:text="LIFE"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="326dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7346BCF2"
+                android:gravity="center"
+                android:text="마감일순"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/memo_list_soon"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="목록"
+                android:textSize="24dp">
+
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7346BCF2"
+                android:gravity="center"
+                android:text="완료순"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/memo_list_done"
+                android:layout_width="match_parent"
+                android:layout_height="133dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="목록"
+                android:textSize="24dp">
+
+            </ListView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
