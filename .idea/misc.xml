@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_arrow_back_black_24dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24dp.xml" value="0.2885" />
+        <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.21037463976945245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
