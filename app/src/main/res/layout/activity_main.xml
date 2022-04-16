@@ -25,12 +25,13 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:adjustViewBounds="true"
-            android:background="#D21092C5"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/bangers"
             android:gravity="center"
             android:paddingLeft="110dp"
             android:paddingRight="100dp"
             android:text="TO DO LIST"
-            android:textColor="#FFFFFF"
+            android:textColor="#9898D6"
             android:textSize="32dp"
             android:textStyle="bold" />
 
@@ -44,9 +45,10 @@
             android:layout_marginRight="3dp"
             android:layout_marginBottom="3dp"
             android:clickable="false"
+            android:fontFamily="@font/shadows_into_light_two"
             android:text="date"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
+            android:textColor="#6d5972"
+            android:textSize="14dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -67,6 +69,7 @@
                 android:layout_height="203dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
+                android:foregroundGravity="center"
                 android:gravity="center"
                 android:text="목록"
                 android:textSize="24dp" />
@@ -75,10 +78,12 @@
                 android:id="@+id/campus_text"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:background="#7346BCF2"
+                android:background="#e0dbef"
+                android:fontFamily="@font/sedgwick_ave"
                 android:gravity="center"
                 android:text="CAMPUS"
                 android:textColor="#FFFFFF"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -91,7 +96,7 @@
             <ListView
                 android:id="@+id/memo_list_life"
                 android:layout_width="match_parent"
-                android:layout_height="203dp"
+                android:layout_height="207dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
                 android:gravity="center"
@@ -102,10 +107,12 @@
                 android:id="@+id/life_text"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:background="#7346BCF2"
+                android:background="#e0dbef"
+                android:fontFamily="@font/sedgwick_ave"
                 android:gravity="center"
                 android:text="LIFE"
                 android:textColor="#FFFFFF"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -125,9 +132,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#7346BCF2"
+                android:background="#c3bee4"
+                android:fontFamily="@font/sedgwick_ave"
                 android:gravity="center"
-                android:text="마감일순"
+                android:text="DEADLINE"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -152,9 +160,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#7346BCF2"
+                android:background="#9986b3"
+                android:fontFamily="@font/sedgwick_ave"
                 android:gravity="center"
-                android:text="완료순"
+                android:text="COMPLETE"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"
                 android:textStyle="bold" />

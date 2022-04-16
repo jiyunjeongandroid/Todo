@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
         <activity
+            android:name=".Create"
+            android:exported="false" />
+        <activity
+            android:name=".Daily"
+            android:exported="false" />
+        <activity
             android:name=".Calendar"
             android:exported="false" />
         <activity
@@ -21,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
