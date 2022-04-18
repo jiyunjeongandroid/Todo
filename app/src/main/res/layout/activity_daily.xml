@@ -49,6 +49,7 @@
     <ListView
         android:id="@+id/lv_memolist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:cacheColorHint="#6d5972" />
 
 </LinearLayout>
