@@ -73,7 +73,7 @@ public class Create extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent (Create.this, Daily.class);
                 intent.putExtra ("date",date);
-                startActivityForResult (intent,REQUEST_CODE_INSERT);
+                startActivity (intent);
             }
         });
 
@@ -118,7 +118,8 @@ public class Create extends AppCompatActivity {
                 Toast.makeText (this, "저장에 실패했습니다", Toast.LENGTH_SHORT).show ();
             } else {
                 Toast.makeText (this, "저장 완료!", Toast.LENGTH_SHORT).show ();
-                setResult (RESULT_OK);
+                Intent intent = new Intent (Create.this,Daily.class);
+                startActivity (intent);
             }
         } else {
             int count = db.update (Memo.MemoEntry.TABLE_NAME, contentValues,
@@ -127,7 +128,6 @@ public class Create extends AppCompatActivity {
                 Toast.makeText (this, "수정에 문제가 발생하였습니다", Toast.LENGTH_SHORT).show ();
             } else {
                 Toast.makeText (this, "메모가 수정되었습니다", Toast.LENGTH_SHORT).show ();
-                setResult (RESULT_OK);
             }
         }
     }

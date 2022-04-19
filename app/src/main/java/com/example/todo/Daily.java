@@ -46,7 +46,7 @@ public class Daily extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (Daily.this,Calendar.class);
-                startActivityForResult (intent,REQUEST_CODE_INSERT);
+                startActivity (intent);
             }
         });
 
@@ -55,16 +55,15 @@ public class Daily extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent (Daily.this,Create.class);
                 intent.putExtra ("date",date);
-                startActivityForResult (intent,REQUEST_CODE_INSERT);
+                startActivity (intent);
             }
         });
 
         Cursor cursor = getMemoCursor();
-        mAdapter = new MemoAdapter (this, cursor);
+        mAdapter = new MemoAdapter (this, cursor); // Cursor로 ListView에 데이터 출력
         lv_memolist.setAdapter (mAdapter);
-        mAdapter.swapCursor (getMemoCursor ());
 
-        lv_memolist.setOnItemClickListener (new AdapterView.OnItemClickListener () { // 리스트뷰의 아이템을 클릭 시 Create화면에 해당 데이터를 출력해줌
+        lv_memolist.setOnItemClickListener (new AdapterView.OnItemClickListener () { // ListView의 아이템을 클릭 시 Create화면에 해당 데이터를 출력해줌
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent (Daily.this,Create.class);
@@ -83,18 +82,10 @@ public class Daily extends AppCompatActivity {
                 intent.putExtra ("campus_or_life",campus_or_life);
                 intent.putExtra ("importance",importance);
 
-                startActivityForResult (intent, REQUEST_CODE_INSERT);
+                startActivity (intent);
             }
         });
 
-    }
-
-   @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult (requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE_INSERT && resultCode == RESULT_OK) {
-            mAdapter.swapCursor (getMemoCursor ());
-        }
     }
 
     private Cursor getMemoCursor() {

@@ -3,8 +3,10 @@ package com.example.todo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -32,7 +34,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ListView listView_campus = (ListView) findViewById (R.id.memo_list_campus);
+        ListView listView_life = (ListView) findViewById (R.id.memo_list_life);
+        ListView listView_soon = (ListView) findViewById (R.id.memo_list_soon);
+        ListView listView_importance = (ListView) findViewById (R.id.memo_list_importance);
 
+        Cursor cursor_campus = getMemoCursor_Campus(); // campus 리스트 출력
+        Daily.mAdapter = new Daily.MemoAdapter (this, cursor_campus);
+        listView_campus.setAdapter(Daily.mAdapter);
+
+        Cursor cursor_life = getMemoCursor_Life(); // life 리스트 출력
+        Daily.mAdapter = new Daily.MemoAdapter (this, cursor_life);
+        listView_life.setAdapter(Daily.mAdapter);
+
+        Cursor cursor_soon = getMemoCursor_Soon(); // 기한이 임박한 순으로 출력
+        Daily.mAdapter = new Daily.MemoAdapter (this, cursor_soon);
+        listView_soon.setAdapter(Daily.mAdapter);
+
+        Cursor cursor_importance = getMemoCursor_Importance(); // 중요도 순으로 출력
+        Daily.mAdapter = new Daily.MemoAdapter (this, cursor_importance);
+        listView_importance.setAdapter(Daily.mAdapter);
 
     }
+
+    private Cursor getMemoCursor_Campus() {
+        MemoDbHelper dbHelper = MemoDbHelper.getInstance(this);
+        return dbHelper.getReadableDatabase()
+                .rawQuery("SELECT * FROM memo WHERE campus_or_life = 'CAMPUS'",null);
+    }
+
+    private Cursor getMemoCursor_Life() {
+        MemoDbHelper dbHelper = MemoDbHelper.getInstance(this);
+        return dbHelper.getReadableDatabase()
+                .rawQuery("SELECT * FROM memo WHERE campus_or_life = 'LIFE'",null);
+    }
+
+    private Cursor getMemoCursor_Soon() {
+        MemoDbHelper dbHelper = MemoDbHelper.getInstance(this);
+        return dbHelper.getReadableDatabase()
+                .rawQuery("SELECT * FROM memo ORDER BY date",null);
+    }
+
+    private Cursor getMemoCursor_Importance() {
+        MemoDbHelper dbHelper = MemoDbHelper.getInstance(this);
+        return dbHelper.getReadableDatabase()
+                .rawQuery("SELECT * FROM memo ORDER BY importance DESC",null);
+    }
+
+
+
 }

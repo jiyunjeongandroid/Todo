@@ -95,8 +95,8 @@
 
             <ListView
                 android:id="@+id/memo_list_life"
-                android:layout_width="match_parent"
-                android:layout_height="207dp"
+                android:layout_width="205dp"
+                android:layout_height="203dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
                 android:gravity="center"
@@ -169,7 +169,7 @@
                 android:textStyle="bold" />
 
             <ListView
-                android:id="@+id/memo_list_done"
+                android:id="@+id/memo_list_importance"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
                 android:layout_weight="1"
