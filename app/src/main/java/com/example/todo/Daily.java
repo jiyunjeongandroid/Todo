@@ -1,12 +1,15 @@
 package com.example.todo;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.helper.widget.Carousel;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +25,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Daily extends AppCompatActivity {
     public static final int REQUEST_CODE_INSERT = 1000;
@@ -86,6 +90,32 @@ public class Daily extends AppCompatActivity {
             }
         });
 
+        lv_memolist.setOnItemLongClickListener (new AdapterView.OnItemLongClickListener () { // ListView의 아이템을 롱클릭 시 해당 데이터를 삭제
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                final long deleteId = id;
+                AlertDialog.Builder builder = new AlertDialog.Builder (Daily.this);
+                builder.setTitle ("메모 삭제");
+                builder.setMessage ("메모를 삭제하시겠습니까?");
+                builder.setPositiveButton ("삭제", new DialogInterface.OnClickListener () {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SQLiteDatabase db = MemoDbHelper.getInstance (Daily.this).getWritableDatabase ();
+                        int deletedCount = db.delete (Memo.MemoEntry.TABLE_NAME,
+                                Memo.MemoEntry._ID + " = " + deleteId, null);
+                        if(deletedCount == 0) {
+                            Toast.makeText (Daily.this, "삭제에 실패했습니다", Toast.LENGTH_SHORT).show ();
+                        } else {
+                            mAdapter.swapCursor (getMemoCursor ());
+                            Toast.makeText (Daily.this, "삭제되었습니다", Toast.LENGTH_SHORT).show ();
+                        }
+                    }
+                });
+                builder.setNegativeButton ("취소", null);
+                builder.show ();
+                return true;
+            }
+        });
     }
 
     private Cursor getMemoCursor() {
