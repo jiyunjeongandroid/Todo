@@ -1,7 +1,7 @@
 # Todo
 ## Andorid 커리큘럼
 
-| Week | 커리큘럼 내용 |
+| Day | 커리큘럼 내용 |
 | ------ |----------- |
 | 1일차 |  LinearLayout을 통한 기초 UI구성, 화면 전환 |
 | 2일차 |  Android Studio 컴포넌트의 이해 |
